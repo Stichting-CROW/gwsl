@@ -5,10 +5,5 @@ Hier worden ook Respec documenten gehost.
 - [Werkgroep Methodieken en Modellering][ddmm]
 - ...
 
-## Configuratie
-
-Lees de [beknopte handleiding voor ReSpec][respec].
-
-[respec]: https://github.com/stichting-crow/respec/wiki
 [ddmm]: http://docs.crow.nl/gwsl/ddmm/
 
