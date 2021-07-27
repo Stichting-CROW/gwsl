@@ -1,0 +1,191 @@
+# baseURI: http://example.org/gwsl
+# imports: https://w3id.org/nen2660/rdfs/def
+# imports: https://w3id.org/nen2660/shacl/def
+# prefix: gwsl
+
+@prefix gwsl: <http://example.org/gwsl#> .
+@prefix nen2660: <https://w3id.org/nen2660/def#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/gwsl>
+  rdf:type owl:Ontology ;
+  owl:imports <https://w3id.org/nen2660/rdfs/def> ;
+  owl:imports <https://w3id.org/nen2660/shacl/def> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+gwsl:Armatuur
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf gwsl:FysiekObject ;
+.
+gwsl:Armatuur_43
+  rdf:type gwsl:Armatuur ;
+  gwsl:opleverdatum "2020-07-26"^^xsd:date ;
+  gwsl:tilthoek "45"^^xsd:decimal ;
+  nen2660:hasBoundary gwsl:Hoofdstraat ;
+.
+gwsl:Attribuut
+  rdf:type rdfs:Class ;
+  rdfs:label "Attribuut" ;
+  rdfs:subClassOf rdf:Property ;
+.
+gwsl:FysiekObject
+  rdf:type rdfs:Class ;
+  rdfs:label "Fysiek Object" ;
+  rdfs:subClassOf nen2660:DiscreteObject ;
+.
+gwsl:Gebied_ABC
+  rdf:type gwsl:GebiedsIndeling ;
+  gwsl:gebiedstype gwsl:agrarischgebied ;
+.
+gwsl:Gebied_XYZ
+  rdf:type gwsl:GebiedsIndeling ;
+.
+gwsl:GebiedsIndeling
+  rdf:type rdfs:Class ;
+  rdfs:label "GebiedsIndeling" ;
+  rdfs:subClassOf gwsl:RuimtelijkObject ;
+.
+gwsl:GebiedstypeEnumerationType
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf nen2660:EnumerationType ;
+.
+gwsl:GebiedstypePropertyShape
+  rdf:type sh:PropertyShape ;
+  sh:path gwsl:gebiedstype ;
+  sh:class gwsl:GebiedstypeEnumerationType ;
+.
+gwsl:GebiedstypeShape
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf gwsl:Attribuut ;
+  sh:property gwsl:GebiedstypePropertyShape ;
+  sh:targetClass gwsl:GebiedsIndeling ;
+.
+gwsl:GeometrischeEntiteit
+  rdf:type rdfs:Class ;
+  rdfs:label "Geometrische Entiteit" ;
+  rdfs:subClassOf nen2660:GeometricEntity ;
+.
+gwsl:Hoofdstraat
+  rdf:type gwsl:GeometrischeEntiteit ;
+.
+gwsl:HoogtePropertyShape
+  rdf:type sh:PropertyShape ;
+  sh:path gwsl:hoogte ;
+  sh:class gwsl:HoogteShape ;
+  sh:datatype xsd:decimal ;
+.
+gwsl:HoogteShape
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf gwsl:Attribuut ;
+  sh:property gwsl:HoogtePropertyShape ;
+  sh:targetClass gwsl:Paal ;
+.
+gwsl:OpleverdatumPropertyShape
+  rdf:type sh:PropertyShape ;
+  sh:path gwsl:opleverdatum ;
+  sh:datatype xsd:date ;
+.
+gwsl:OpleverdatumShape
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf gwsl:Attribuut ;
+  sh:property gwsl:OpleverdatumPropertyShape ;
+  sh:targetClass gwsl:FysiekObject ;
+.
+gwsl:Paal
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf gwsl:FysiekObject ;
+.
+gwsl:Paal_123
+  rdf:type gwsl:Paal ;
+  gwsl:opleverdatum "2021-07-26"^^xsd:date ;
+  gwsl:verplaatsbaar "false"^^xsd:boolean ;
+.
+gwsl:Paal_234
+  rdf:type gwsl:Paal ;
+  gwsl:opleverdatum "2021-07-26"^^xsd:date ;
+  gwsl:verplaatsbaar "true"^^xsd:boolean ;
+.
+gwsl:RuimtelijkObject
+  rdf:type rdfs:Class ;
+  rdfs:label "Ruimtelijk Object" ;
+  rdfs:subClassOf nen2660:SpatialRegion ;
+.
+gwsl:TilthoekPropertyShape
+  rdf:type sh:PropertyShape ;
+  sh:path gwsl:tilthoek ;
+  sh:datatype xsd:decimal ;
+.
+gwsl:TilthoekShape
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf gwsl:Attribuut ;
+  sh:property gwsl:TilthoekPropertyShape ;
+  sh:targetClass gwsl:Armatuur ;
+.
+gwsl:VerplaatsbaarPropertyShape
+  rdf:type sh:PropertyShape ;
+  sh:path gwsl:verplaatsbaar ;
+  sh:datatype xsd:boolean ;
+.
+gwsl:VerplaatsbaarShape
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf gwsl:Attribuut ;
+  sh:property gwsl:VerplaatsbaarPropertyShape ;
+  sh:targetClass gwsl:Paal ;
+.
+gwsl:agrarischgebied
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Agrarisch Gebied" ;
+.
+gwsl:begraafplaats
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Begraafplaats" ;
+.
+gwsl:gebiedstype
+  rdf:type rdf:Property ;
+.
+gwsl:hoofdwegen
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Hoofdwegen" ;
+.
+gwsl:natuurgebied
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Natuurgebied" ;
+.
+gwsl:opleverdatum
+  rdf:type rdf:Property ;
+  rdf:type rdfs:Resource ;
+.
+gwsl:recreatiegebied
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Recreatiegebied" ;
+.
+gwsl:sportterrein
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Sportterrein" ;
+.
+gwsl:tilthoek
+  rdf:type rdf:Property ;
+.
+gwsl:verplaatsbaar
+  rdf:type rdf:Property ;
+.
+gwsl:waterwegen
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Waterwegen" ;
+.
+gwsl:werkgebied
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Werkgebied" ;
+.
+gwsl:winkelgebied
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Winkelgebied" ;
+.
+gwsl:woongebied
+  rdf:type gwsl:GebiedstypeEnumerationType ;
+  rdfs:label "Woongebied" ;
+.
