@@ -1,0 +1,43 @@
+# baseURI: http://example.org/gwsl
+# imports: http://datashapes.org/dash
+# imports: https://w3id.org/nen2660/shacl/def
+# prefix: gwsl
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix gwsl: <http://example.org/gwsl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/gwsl>
+  rdf:type owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <https://w3id.org/nen2660/shacl/def> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+gwsl:DomeinwaardeLijst
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf <https://w3id.org/nen2660/def#EnumerationType> ;
+.
+gwsl:FysiekObject
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf <https://w3id.org/nen2660/def#DiscreteObject> ;
+.
+gwsl:GeometrischeEntiteit
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf <https://w3id.org/nen2660/def#GeometricEntity> ;
+.
+gwsl:InformatieObject
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf <https://w3id.org/nen2660/def#InformationObject> ;
+.
+gwsl:RuimtelijkObject
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf <https://w3id.org/nen2660/def#SpatialRegion> ;
+.

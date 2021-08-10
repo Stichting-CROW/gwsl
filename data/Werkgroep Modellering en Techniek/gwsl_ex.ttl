@@ -1,0 +1,33 @@
+# baseURI: http://example.org/gwsl_ex
+# imports: http://example.org/gwsl_ontologie
+# prefix: gwsl_ex
+
+@prefix gwsl: <http://example.org/gwsl#> .
+@prefix gwsl_ex: <http://example.org/gwsl_ex#> .
+@prefix nen2660: <https://w3id.org/nen2660/def#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/gwsl_ex>
+  rdf:type owl:Ontology ;
+  owl:imports <http://example.org/gwsl_ontologie> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+gwsl_ex:Armatuur_43
+  rdf:type gwsl:Armatuur ;
+  gwsl:maximaalWatt "240" ;
+  gwsl:opleverDatum "2020-07-26"^^xsd:date ;
+  rdfs:label "Armatuur 43" ;
+.
+gwsl_ex:Gebied_ABC
+  rdf:type gwsl:Gebiedsindeling ;
+  gwsl:gebiedsType gwsl:Agrarisch_gebied ;
+  rdfs:label "Gebied ABC" ;
+.
+gwsl_ex:Gebied_XYZ
+  rdf:type gwsl:Gebiedsindeling ;
+  rdfs:label "Gebied XYZ" ;
+  nen2660:contains gwsl_ex:Armatuur_43 ;
+.

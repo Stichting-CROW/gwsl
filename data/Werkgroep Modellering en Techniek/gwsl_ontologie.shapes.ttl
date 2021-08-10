@@ -1,0 +1,76 @@
+# baseURI: http://example.org/gwsl_ontologie
+# imports: http://datashapes.org/dash
+# imports: http://example.org/gwsl
+# prefix: gwsl_ontologie
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix gwsl: <http://example.org/gwsl#> .
+@prefix gwsl_ontologie: <http://example.org/gwsl_ontologie#> .
+@prefix nen2660: <https://w3id.org/nen2660/def#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+gwsl:Agrarisch_gebied
+  rdf:type gwsl:GebiedstypeType ;
+  rdfs:label "Agrarisch gebied" ;
+.
+gwsl:Armatuur
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf gwsl:FysiekObject ;
+  sh:property gwsl:MaximaalWattShape ;
+  sh:property gwsl:OpleverDatumShape ;
+.
+gwsl:Gebiedsindeling
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf gwsl:RuimtelijkObject ;
+  sh:property gwsl:GebiedstypeShape ;
+.
+gwsl:GebiedstypeShape
+  rdf:type sh:PropertyShape ;
+  sh:path gwsl:gebiedsType ;
+.
+gwsl:GebiedstypeType
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf gwsl:DomeinwaardeLijst ;
+.
+gwsl:MaximaalWattShape
+  rdf:type sh:PropertyShape ;
+  sh:path gwsl:maximaalWatt ;
+.
+gwsl:OpleverDatumShape
+  rdf:type sh:PropertyShape ;
+  sh:path gwsl:opleverDatum ;
+  sh:datatype xsd:date ;
+.
+gwsl:Woongebied
+  rdf:type gwsl:GebiedstypeType ;
+  rdfs:label "Woongebied" ;
+.
+gwsl:gebiedsType
+  rdf:type rdf:Property ;
+  sh:class gwsl:GebiedstypeType ;
+.
+gwsl:maximaalWatt
+  rdf:type rdf:Property ;
+  nen2660:hasQuantityKind <http://qudt.org/vocab/quantitykind/Power> ;
+  nen2660:hasUnit <http://qudt.org/vocab/unit/W> ;
+.
+gwsl:opleverDatum
+  rdf:type rdf:Property ;
+.
+<http://example.org/gwsl_ontologie>
+  rdf:type owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <http://example.org/gwsl> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+<http://qudt.org/vocab/unit/W>
+  rdf:type qudt:Unit ;
+.
