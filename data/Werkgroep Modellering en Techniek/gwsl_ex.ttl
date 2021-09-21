@@ -1,33 +1,36 @@
-# baseURI: http://example.org/gwsl_ex
-# imports: http://example.org/gwsl_ontologie
-# prefix: gwsl_ex
+# baseURI: https://data.crow.nl/gwsl-ex
+# imports: https://data.crow.nl/gwsl-meta
+# imports: https://data.crow.nl/gwsl/def/
+# prefix: void
 
-@prefix gwsl: <http://example.org/gwsl#> .
-@prefix gwsl_ex: <http://example.org/gwsl_ex#> .
+@prefix gwsl: <https://data.crow.nl/gwsl/def/> .
+@prefix gwsl-meta: <https://data.crow.nl/gwsl-meta#> .
 @prefix nen2660: <https://w3id.org/nen2660/def#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gwsl-ex: <https://data.crow.nl/gwsl-ex#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/gwsl_ex>
+<https://data.crow.nl/gwsl-ex>
   rdf:type owl:Ontology ;
-  owl:imports <http://example.org/gwsl_ontologie> ;
+  owl:imports <https://data.crow.nl/gwsl-meta> ;
+  owl:imports gwsl: ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
-gwsl_ex:Armatuur_43
-  rdf:type gwsl:Armatuur ;
-  gwsl:maximaalWatt "240" ;
-  gwsl:opleverDatum "2020-07-26"^^xsd:date ;
+gwsl-ex:Armatuur_43
+  rdf:type gwsl-meta:Armatuur ;
   rdfs:label "Armatuur 43" ;
+  gwsl-meta:maximaalWatt "240" ;
+  gwsl-meta:opleverDatum "2020-07-26"^^xsd:date ;
 .
-gwsl_ex:Gebied_ABC
-  rdf:type gwsl:Gebiedsindeling ;
-  gwsl:gebiedsType gwsl:Agrarisch_gebied ;
+gwsl-ex:Gebied_ABC
+  rdf:type gwsl-meta:Gebiedsindeling ;
   rdfs:label "Gebied ABC" ;
+  gwsl-meta:gebiedsType gwsl-meta:Agrarisch_gebied ;
 .
-gwsl_ex:Gebied_XYZ
-  rdf:type gwsl:Gebiedsindeling ;
+gwsl-ex:Gebied_XYZ
+  rdf:type gwsl-meta:Gebiedsindeling ;
   rdfs:label "Gebied XYZ" ;
-  nen2660:contains gwsl_ex:Armatuur_43 ;
+  nen2660:contains gwsl-ex:Armatuur_43 ;
 .
