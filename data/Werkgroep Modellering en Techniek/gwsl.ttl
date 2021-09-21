@@ -1,7 +1,5 @@
-# baseURI: https://data.crow.nl/gwsl/def/
-# imports: https://data.crow.nl/gwsl-meta
+# baseURI: https://data.crow.nl/gwsl/def
 
-@prefix : <https://data.crow.nl/gwsl/def/> .
 @prefix gwsl: <https://data.crow.nl/gwsl/def/#> .
 @prefix gwsl-meta: <https://data.crow.nl/gwsl-meta#> .
 @prefix nen2660: <https://w3id.org/nen2660/def#> .
@@ -13,7 +11,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:
+<https://data.crow.nl/gwsl/def#>
   rdf:type owl:Ontology ;
   owl:imports <https://data.crow.nl/gwsl-meta> ;
   owl:versionInfo "Created with TopBraid Composer" ;
