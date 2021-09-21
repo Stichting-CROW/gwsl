@@ -1,7 +1,6 @@
 # baseURI: https://data.crow.nl/gwsl/def
 
 @prefix gwsl: <https://data.crow.nl/gwsl/def/#> .
-@prefix gwsl-meta: <https://data.crow.nl/gwsl-meta#> .
 @prefix nen2660: <https://w3id.org/nen2660/def#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
@@ -13,7 +12,7 @@
 
 <https://data.crow.nl/gwsl/def#>
   rdf:type owl:Ontology ;
-  owl:imports <https://data.crow.nl/gwsl-meta> ;
+  owl:imports <https://w3id.org/nen2660/shacl/def> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 gwsl:Agrarisch_gebied
@@ -26,27 +25,57 @@ gwsl:Armatuur
   rdf:type sh:NodeShape ;
   rdfs:label "Armatuur"@nl ;
   rdfs:label "Fixture1"@en ;
-  rdfs:subClassOf gwsl-meta:FysiekObject ;
+  rdfs:subClassOf gwsl:FysiekObject ;
+.
+gwsl:DomeinwaardeLijst
+  rdf:type rdfs:Class ;
+  rdfs:label "Domeinwaardelijst"@nl ;
+  rdfs:label "Enumerationtype"@en ;
+  rdfs:subClassOf nen2660:EnumerationType ;
+.
+gwsl:FysiekObject
+  rdf:type rdfs:Class ;
+  rdfs:label "Discrete object"@en ;
+  rdfs:label "Fysiek object"@nl ;
+  rdfs:subClassOf nen2660:DiscreteObject ;
 .
 gwsl:Gebiedsindeling
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:label "Gebiedsindeling"@nl ;
   rdfs:label "Territorial structure"@en ;
-  rdfs:subClassOf gwsl-meta:RuimtelijkObject ;
+  rdfs:subClassOf gwsl:RuimtelijkObject ;
 .
 gwsl:GebiedstypeShape
   rdf:type sh:PropertyShape ;
 .
 gwsl:GebiedstypeType
   rdf:type rdfs:Class ;
-  rdfs:subClassOf gwsl-meta:DomeinwaardeLijst ;
+  rdfs:subClassOf gwsl:DomeinwaardeLijst ;
+.
+gwsl:GeometrischeEntiteit
+  rdf:type rdfs:Class ;
+  rdfs:label "Geometric entity"@en ;
+  rdfs:label "Geometrische entiteit"@nl ;
+  rdfs:subClassOf nen2660:GeometricEntity ;
+.
+gwsl:InformatieObject
+  rdf:type rdfs:Class ;
+  rdfs:label "Informatie object"@nl ;
+  rdfs:label "Information object"@en ;
+  rdfs:subClassOf nen2660:InformationObject ;
 .
 gwsl:MaximaalWattShape
   rdf:type sh:PropertyShape ;
 .
 gwsl:OpleverDatumShape
   rdf:type sh:PropertyShape ;
+.
+gwsl:RuimtelijkObject
+  rdf:type rdfs:Class ;
+  rdfs:label "Ruimtelijk object"@nl ;
+  rdfs:label "Spacial object"@en ;
+  rdfs:subClassOf nen2660:SpatialRegion ;
 .
 gwsl:Woongebied
   rdf:type gwsl:GebiedstypeType ;
