@@ -24,7 +24,7 @@ gwsl:Armatuur
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:label "Armatuur"@nl ;
-  rdfs:label "Fixture1"@en ;
+  rdfs:label "Fixture"@en ;
   rdfs:subClassOf gwsl:FysiekObject ;
 .
 gwsl:DomeinwaardeLijst
