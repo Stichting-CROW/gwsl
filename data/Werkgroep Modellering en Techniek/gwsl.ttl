@@ -61,7 +61,7 @@ gwsl:GeometrischeEntiteit
 .
 gwsl:InformatieObject
   rdf:type rdfs:Class ;
-  rdfs:label "Informatie object"@nl ;
+  rdfs:label "Informatie-object"@nl ;
   rdfs:label "Information object"@en ;
   rdfs:subClassOf nen2660:InformationObject ;
 .
