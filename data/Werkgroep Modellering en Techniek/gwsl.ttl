@@ -30,7 +30,7 @@ gwsl:Armatuur
 gwsl:DomeinwaardeLijst
   rdf:type rdfs:Class ;
   rdfs:label "Domeinwaardelijst"@nl ;
-  rdfs:label "Enumerationtype"@en ;
+  rdfs:label "Enumeration type"@en ;
   rdfs:subClassOf nen2660:EnumerationType ;
 .
 gwsl:FysiekObject
